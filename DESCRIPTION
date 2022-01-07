@@ -1,0 +1,29 @@
+Package: CovidGolem
+Title: CoVid19App
+Version: 0.0.0.9000
+Authors@R: person('Seth', 'Friesz', email = 'seth.friesz@sdstate.edu', role = c('cre', 'aut'))
+Description: CovidGolem is a Golem app that has two different tabs. The first tab displays a United States map of CoVid-19 infections at the county level. You can change the date to see how many infections have been documented up to that day. Second tab contains a line plot that can be modified to show overall infections for the state of overall infections per 100,000 population. 
+License: MIT + file LICENSE
+Imports: 
+    anytime,
+    attempt,
+    config (>= 0.3.1),
+    DT,
+    ggplot2,
+    glue,
+    golem (>= 0.3.1),
+    htmltools,
+    plotly,
+    processx,
+    readxl,
+    shiny (>= 1.7.1),
+    shinyWidgets,
+    thinkr
+Encoding: UTF-8
+LazyData: true
+RoxygenNote: 7.1.2
+Suggests: 
+    spelling,
+    testthat (>= 3.0.0)
+Config/testthat/edition: 3
+Language: en-US
