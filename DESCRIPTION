@@ -1,8 +1,12 @@
-Package: CovidGolem
-Title: CoVid19App
+Package: GolemCoVid
+Title: An Amazing Shiny App
 Version: 0.0.0.9000
-Authors@R: person('Seth', 'Friesz', email = 'seth.friesz@sdstate.edu', role = c('cre', 'aut'))
-Description: CovidGolem is a Golem app that has two different tabs. The first tab displays a United States map of CoVid-19 infections at the county level. You can change the date to see how many infections have been documented up to that day. Second tab contains a line plot that can be modified to show overall infections for the state of overall infections per 100,000 population. 
+Authors@R: 
+    person(given = "firstname",
+           family = "lastname",
+           role = c("aut", "cre"),
+           email = "your@email.com")
+Description: What the package does (one paragraph).
 License: MIT + file LICENSE
 Imports: 
     anytime,
@@ -15,15 +19,18 @@ Imports:
     htmltools,
     plotly,
     processx,
-    readxl,
     shiny (>= 1.7.1),
+    shinysky,
     shinyWidgets,
-    thinkr
+    thinkr,
+    tidyr
 Encoding: UTF-8
 LazyData: true
-RoxygenNote: 7.1.2
+RoxygenNote: 7.1.1
 Suggests: 
     spelling,
     testthat (>= 3.0.0)
 Config/testthat/edition: 3
 Language: en-US
+Depends: 
+    R (>= 2.10)
