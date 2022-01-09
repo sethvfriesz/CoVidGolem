@@ -1,3 +1,6 @@
+library(tidyr)
+library(anytime)
+library(dplyr)
 #' Get Data 
 #'
 #' @description A fct function that gets the necessary data
@@ -5,7 +8,6 @@
 #' @return The return value, if any, from executing the function.
 #'
 #' @noRd
-
 
 get_the_data <- function() {
   US_counties <- raw_US_counties

@@ -8,13 +8,15 @@ app_ui <- function(request) {
   tagList(
     # Leave this function for adding external resources
     golem_add_external_resources(),
-    shinysky::busyIndicator(text = "Give me a second...", wait = 0),
+    shinysky::busyIndicator(text = "Give me a second...", wait = 10000),
     # Your application UI logic 
       navbarPage(
         id = "navbar",
         title = "CoVid-19 Dashboard",
         mod_The_Main_Man_ui(
           id = "The_Main_Man_ui_1"),
+        mod_US_States_Infections_ui(
+          id = "US_States_Infections_ui_1")
         
       )
     )
