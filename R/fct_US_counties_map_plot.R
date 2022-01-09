@@ -1,13 +1,12 @@
-#' country_map_plot 
+#' US_counties_map_plot 
 #'
 #' @description A fct function
 #'
 #' @return The return value, if any, from executing the function.
 #'
 #' @noRd
-
-
-US_counties_map_plot <- function(dataset, date) {
+NULL
+US_counties_map_plot <- function(dataset,date) {
   plotly::plot_ly(text = ~paste(US_counties$Combined_Key,'infection count:',US_counties[,date])) %>%
     plotly::add_trace(
       type="choropleth",
@@ -32,20 +31,3 @@ US_counties_map_plot <- function(dataset, date) {
       )
     )
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

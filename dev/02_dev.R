@@ -24,15 +24,17 @@ usethis::use_package("anytime")
 usethis::use_package('shinyWidgets')
 usethis::use_package("readr")
 usethis::use_package("shinysky")
+usethis::use_package("dplyr")
 
 ## Add modules ----
 ## Create a module infrastructure in R/
 golem::add_module( name = "The_Main_Man" ) # Name of the module
-golem::add_module( name = "name_of_module2" ) # Name of the module
+golem::add_module( name = "US_States_Infections" ) # Name of the module
 
 ## Add helper functions ----
 golem::add_fct( "get_data" )
-golem::add_fct( "country_map_plot" )
+golem::add_fct( "US_counties_map_plot" )
+golem::add_fct( "infections_plot" )
 
 
 
@@ -50,6 +52,7 @@ golem::add_css_file( "custom" )
 ## If you have data in your package
 usethis::use_data_raw( name = "US_counties", open = FALSE ) 
 usethis::use_data_raw( name = "Census", open = FALSE )
+usethis::use_data_raw( name = "states_longer", open = FALSE)
 
 ## Tests ----
 ## Add one line by test you want to create
