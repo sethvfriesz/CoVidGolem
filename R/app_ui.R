@@ -8,7 +8,7 @@ app_ui <- function(request) {
   tagList(
     # Leave this function for adding external resources
     golem_add_external_resources(),
-    shinysky::busyIndicator(text = "Give me a second...", wait = 10000),
+    #shinysky::busyIndicator(text = "Give me a second...", wait = 10000),
     # Your application UI logic 
       navbarPage(
         id = "navbar",

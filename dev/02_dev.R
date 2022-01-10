@@ -25,6 +25,7 @@ usethis::use_package('shinyWidgets')
 usethis::use_package("readr")
 usethis::use_package("shinysky")
 usethis::use_package("dplyr")
+usethis::use_package("graphics")
 
 ## Add modules ----
 ## Create a module infrastructure in R/
