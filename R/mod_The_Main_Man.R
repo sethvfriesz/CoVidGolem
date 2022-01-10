@@ -13,13 +13,16 @@ mod_The_Main_Man_ui <- function(id){
     "CoVid-19 since patient zero across the U.S.",
     sidebarLayout(
       sidebarPanel(
-        selectInput('date','Please select a date:', choices = colnames(raw_US_counties[,c(12:ncol(raw_US_counties))]))
+        selectInput(ns('date'),'Please select a date:', choices = colnames(raw_US_counties[,c(12:ncol(raw_US_counties))]))
       ),
       mainPanel(
         shinysky::busyIndicator(text = "Give me a sec brudda", wait = 1000 ),
-        #add_busy_spinner(spin = "fading-circle"),
         h1("CoVid-19 since patient zero across the U.S."),
-        plotly::plotlyOutput(outputId = "p", height = "800px")
+        plotly::plotlyOutput(
+          outputId = ns("p"),
+          height = "800px")
+        # shiny::textOutput(
+        #   outputId = ns("selected_var"))
       )
     )
   )
@@ -31,10 +34,13 @@ mod_The_Main_Man_ui <- function(id){
 mod_The_Main_Man_server <- function(id, app_data, tab){
   moduleServer( id, function(input, output, session){
     ns <- session$ns
-    #---------------------------------------
+    # output$selected_var <- shiny::renderText({
+    #   paste("You have selected", input$date)
+    # })
+    
     output$p <- plotly::renderPlotly({
       dataplots = US_counties_map_plot(
-        dataset = app_data$US_counties,
+        dataset = app_data,
         date = input$date)
     })
   })

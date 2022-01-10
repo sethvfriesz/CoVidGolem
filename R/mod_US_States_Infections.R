@@ -13,13 +13,13 @@ mod_US_States_Infections_ui <- function(id){
            sidebarLayout(
              sidebarPanel(
                radioButtons(
-                 inputId = "measurement",
+                 inputId = ns("measurement"),
                  label = "Please pick a way to measure CoVid-19 infections:",
                  choices = c("Overall infections over 2 week periods", "Overall infections per 100,000 population over 2 week periods")),
                shinyWidgets::pickerInput(
-                 inputId = "state",
+                 inputId = ns("state"),
                  label = "Please select one or more state(s):",
-                 choices=unique(states_longer['State']),
+                 choices=unique(raw_states_longer['State']),
                  selected = 'South Dakota',
                  options = list(`actions-box` = TRUE),
                  multiple = T)
@@ -28,7 +28,7 @@ mod_US_States_Infections_ui <- function(id){
                shinysky::busyIndicator(text = "Give me a sec brudda", wait = 1000 ),
                h1("CoVid-19 infections over time by State"),
                plotly::plotlyOutput(
-                 outputId = 'state_plot',
+                 outputId = ns('state_plot'),
                  height = "800px",
                  width = "1150px")
              )
@@ -44,7 +44,7 @@ mod_US_States_Infections_server <- function(id, app_data, tab){
     ns <- session$ns
     output$state_plot <- plotly::renderPlotly({
       dataplot = infections_plot(
-        dataset = app_data$states_longer,
+        dataset = app_data,
         plot_choice = input$measurement,
         states = input$state)
     })

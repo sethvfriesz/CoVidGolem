@@ -34,14 +34,14 @@ list_of_names = c('State', '01/31/2020','02/14/2020','02/28/2020','03/13/2020','
 
 colnames(US_states_14_days_final)<- list_of_names
 
-states_longer = US_states_14_days_final %>% pivot_longer(!State, names_to = "date", values_to = "overall")
-states_longer$date <- anydate(states_longer$date)
+raw_states_longer = US_states_14_days_final %>% pivot_longer(!State, names_to = "date", values_to = "overall")
+raw_states_longer$date <- anydate(raw_states_longer$date)
 
 # for loop to get per 100,000
-for (x in unique(states_longer$State)){
-  states_longer[states_longer$State == x, "state_population"] = Census[Census$NAME == x, "POPESTIMATE2019"]
+for (x in unique(raw_states_longer$State)){
+  raw_states_longer[raw_states_longer$State == x, "state_population"] = Census[Census$NAME == x, "POPESTIMATE2019"]
 }
 
-states_longer$per_hundred_thousand = (states_longer$overall / (states_longer$state_population/100000))
+raw_states_longer$per_hundred_thousand = (raw_states_longer$overall / (raw_states_longer$state_population/100000))
 
-usethis::use_data(states_longer, overwrite = TRUE)
+usethis::use_data(raw_states_longer, overwrite = TRUE)
